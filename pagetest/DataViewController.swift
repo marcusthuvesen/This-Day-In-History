@@ -62,11 +62,10 @@ class DataViewController: UIViewController {
             "format" : "json",
             "action" : "query",
             "prop" : "extracts",
-            "rvprop" : "content",
-            "rvsection" : "0",
-            "exintro" : "2",
+            "exintro" : "",
             "explaintext" : "",
             "titles" : pickedDate,
+            "redirects" : "1",
             "indexpageids" : "",
             
             
@@ -81,7 +80,7 @@ class DataViewController: UIViewController {
                 print(JSON(response.result.value))
                 let pageid = dateJSON["query"]["pageids"][0].stringValue
                 
-                let dateDescription = dateJSON["query"]["pages"][pageid]["extr"].stringValue
+                let dateDescription = dateJSON["query"]["pages"][pageid]["extract"].stringValue
                 
                 self.dayDescriptionText.text = dateDescription
             }
