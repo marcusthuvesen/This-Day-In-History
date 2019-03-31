@@ -26,8 +26,39 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
     override init() {
         super.init()
         // Create the data model.
+        let calendar = Calendar.current
         let dateFormatter = DateFormatter()
-        pageData = dateFormatter.monthSymbols
+        dateFormatter.dateFormat = "EEEE, MMM d"
+        
+        
+        //Two Days Ago
+        let twoDaysAgo = calendar.date(byAdding: .day, value: -2, to: Date())
+        let twoDaysAgoToString = dateFormatter.string(from: twoDaysAgo!)
+        pageData.append(twoDaysAgoToString)
+        
+        //One Day Ago
+        let oneDayAgo = calendar.date(byAdding: .day, value: -1, to: Date())
+        let oneDayAgoToString = dateFormatter.string(from: oneDayAgo!)
+        pageData.append(oneDayAgoToString)
+        
+        //Current Date
+        let dateInFormat = dateFormatter.string(from: Date())
+        pageData.append(dateInFormat)
+        
+        //Tomorrow
+        let tomorrow = calendar.date(byAdding: .day, value: 1, to: Date())
+        let tomorrowToString = dateFormatter.string(from: tomorrow!)
+        pageData.append(tomorrowToString)
+        
+        //Day After Tomorrow
+        let dayAfterTomorrow = calendar.date(byAdding: .day, value: 2, to: Date())
+        let dayAfterTomorrowToString = dateFormatter.string(from: dayAfterTomorrow!)
+        pageData.append(dayAfterTomorrowToString)
+        
+        
+        
+        
+        
     }
 
     func viewControllerAtIndex(_ index: Int, storyboard: UIStoryboard) -> DataViewController? {
@@ -74,4 +105,5 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
     }
 
 }
+
 

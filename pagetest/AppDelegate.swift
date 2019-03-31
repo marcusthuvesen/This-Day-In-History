@@ -7,9 +7,17 @@
 //
 
 import UIKit
-
+import VACalendar
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, VAMonthHeaderViewDelegate {
+    func didTapNextMonth() {
+        
+    }
+    
+    func didTapPreviousMonth() {
+        
+    }
+    
 
     var window: UIWindow?
 
